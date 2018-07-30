@@ -1,5 +1,6 @@
 import { getOrgByEventUserAsync, getJSONAsyncService, getJSONService } from './services/org';
 import axios from 'axios';
+import { getApi } from './apiUtils';
 
 let orgid = '';
 console.log("================ testing promises and async/await =======================");
@@ -33,6 +34,8 @@ async function getJSONAsync() {
     return json.data.title;
 }
 
+
+
 getJSONAsync().then(function (result) {
     console.log("================ getJSONAsync =======================", result);
 });
@@ -41,15 +44,29 @@ getJSON().then(function (result) {
     console.log("================ getJSON =======================", result);
 });
 
+const getApiResult2 = getApi(event).then((result) => {
+    this.setState({ users: result.data });
+}).catch((e) => {
+    return e;
+});
+console.log('getApiResult2', getApiResult2); //
+
+let testoutside = '';
+
+
 async function go() {
     try {
-        const orgId = await getJSONAsync();
-        console.log('getJSONAsync', orgId); //
+        const getApiResult = await getApi(event);
+        console.log('getApiResult', getApiResult); //
+
+        testoutside = await getJSONAsync();
+        console.log('getJSONAsync testoutside', testoutside); //
 
         const orgId2 = await getJSONAsyncService(event);
         console.log('getJSONAsyncService', orgId2);
 
         const orgId3 = await getJSONService(event);
+        // const orgId3 =  getJSONService(event).then((data) => Promise.resolve(data));
         console.log('getJSONService', orgId3);
 
         const orgId4 = await getOrgByEventUserAsync(event);
@@ -71,7 +88,6 @@ async function go() {
 }
 
 go();
-
 
 // try {
 //     const orgId = getOrgByEventUserAsync(event).then((data) => {
