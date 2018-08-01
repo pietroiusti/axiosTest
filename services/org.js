@@ -3,8 +3,9 @@ import axios from 'axios';
 var url = 'https://jsonplaceholder.typicode.com/posts';
 
 export const getOrgByEventUserAsync = async (event) => {
-    const orgData = await axios.get(url + `/${event.userid}`);
-      return orgData.data.title;
+    var urlLocal = 'https://jsonplaceholder.typicode.com/posts';
+    const orgData = await axios.get(urlLocal + `/${event.userid}`);
+    return orgData.data.title;
 };
 
 export const getJSONAsyncService = async (event) => {
@@ -26,3 +27,7 @@ export const getJSONService = (event) => {
             });
     });
 };
+
+
+
+

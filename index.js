@@ -33,47 +33,43 @@ async function getJSONAsync() {
     // We return it just like in a regular synchronous function.
     return json.data.title;
 }
+// getJSONAsync().then(function (result) {
+//     console.log("================ getJSONAsync =======================", result);
+// });
+// getJSON().then(function (result) {
+//     console.log("================ getJSON =======================", result);
+// });
 
-
-
-getJSONAsync().then(function (result) {
-    console.log("================ getJSONAsync =======================", result);
-});
-
-getJSON().then(function (result) {
-    console.log("================ getJSON =======================", result);
-});
-
-const getApiResult2 = getApi(event).then((result) => {
-    this.setState({ users: result.data });
-}).catch((e) => {
-    return e;
-});
-console.log('getApiResult2', getApiResult2); //
+// const getApiResult2 = getApi(event).then((result) => {
+//     this.setState({ users: result.data });
+// }).catch((e) => {
+//     return e;
+// });
+// console.log('getApiResult2', getApiResult2); //
 
 let testoutside = '';
 
 
-async function go() {
+const go = async (event) => {
     try {
-        const getApiResult = await getApi(event);
-        console.log('getApiResult', getApiResult); //
+        // const getApiResult = await getApi(event);
+        // console.log('getApiResult', getApiResult); //
 
-        testoutside = await getJSONAsync();
-        console.log('getJSONAsync testoutside', testoutside); //
+        // testoutside = await getJSONAsync();
+        // console.log('getJSONAsync testoutside', testoutside); //
 
-        const orgId2 = await getJSONAsyncService(event);
-        console.log('getJSONAsyncService', orgId2);
+        // const orgId2 = await getJSONAsyncService(event);
+        // console.log('getJSONAsyncService', orgId2);
 
-        const orgId3 = await getJSONService(event);
-        // const orgId3 =  getJSONService(event).then((data) => Promise.resolve(data));
-        console.log('getJSONService', orgId3);
+        // const orgId3 = await getJSONService(event);
+        // // const orgId3 =  getJSONService(event).then((data) => Promise.resolve(data));
+        // console.log('getJSONService', orgId3);
 
         const orgId4 = await getOrgByEventUserAsync(event);
         console.log('getOrgByEventUserAsync', orgId4); //      
         // then we grab some data over an Ajax request
-        const wes = await axios('https://api.github.com/users/wesbos');
-        console.log(wes.data.node_id); // mediocre code
+        // const wes = await axios('https://api.github.com/users/wesbos');
+        // console.log(wes.data.node_id); // mediocre code
         //   // many requests should be concurrent - don't slow things down!
         //   // fire off three requests and save their promises
         //   const wordPromise = axios('http://www.setgetgo.com/randomword/get.php');
@@ -87,7 +83,7 @@ async function go() {
     }
 }
 
-go();
+go(event);
 
 // try {
 //     const orgId = getOrgByEventUserAsync(event).then((data) => {
