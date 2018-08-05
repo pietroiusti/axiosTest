@@ -2,12 +2,6 @@ import axios from 'axios';
 
 var url = 'https://jsonplaceholder.typicode.com/posts';
 
-export const getOrgByEventUserAsync = async (event) => {
-    var urlLocal = 'https://jsonplaceholder.typicode.com/posts';
-    const orgData = await axios.get(urlLocal + `/${event.userid}`);
-    return orgData.data.title;
-};
-
 export const getJSONAsyncService = async (event) => {
     // The await keyword saves us from having to write a .then() block.
     let json = await axios.get(url + `/${event.userid}`);
@@ -28,6 +22,16 @@ export const getJSONService = (event) => {
     });
 };
 
+export const getOrgByEventUserAsync = async (event) => {
+    var urlLocal = 'https://jsonplaceholder.typicode.com/posts';
+    const orgData = await axios.get(urlLocal + `/${event.userid}`);
+    return orgData.data.title;
+};
 
+export const getOrgByEventUserPromise = async (event) => {
+    var urlLocal = 'https://jsonplaceholder.typicode.com/posts';
+    return axios.get(urlLocal + `/${event.userid}`)
+        .then(orgData => orgData.data.title);
+};
 
 
