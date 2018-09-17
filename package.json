@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "lodash": "^4.17.10",
+    "mssql": "^4.2.1",
     "transform-runtime": "0.0.0"
   },
   "devDependencies": {

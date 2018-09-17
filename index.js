@@ -4,7 +4,6 @@ import { getApi } from './apiUtils';
 
 let orgid = '';
 console.log("================ testing promises and async/await =======================");
-
 const event = { properties: { organizationId: "ip_43A43232R3243EW342WF43FE43" }, userid: "5" };
 var url = 'https://jsonplaceholder.typicode.com/posts';
 
@@ -66,6 +65,7 @@ const go = async (event) => {
         console.error(e); // 💩
     }
 }
+
 go(event);
 
 const addGlobals = async (event) => {
@@ -85,4 +85,5 @@ const displayGlobals = async (event) => {
 }
 
 displayGlobals(event);
+
 // displayGlobals(event).then(data => data).then(console.log);
