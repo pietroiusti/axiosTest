@@ -1,8 +1,8 @@
 const config = {
     user: 'stefano',
-    password: 'St3fan0p!',
-    server: 'stefanodb.database.windows.net', // You can use 'localhost\\instance' to connect to named instance
-    database: 'StefanoDatabase',
+    password: 'xxxxx',
+    server: 'xxxxx.database.windows.net', // You can use 'localhost\\instance' to connect to named instance
+    database: 'xxxx',
     options: {
         encrypt: true // Use this if you're on Windows Azure
     }
