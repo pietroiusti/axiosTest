@@ -1,5 +1,5 @@
 const config = {
-    user: 'stefano',
+    user: 'xxxx',
     password: 'xxxxx',
     server: 'xxxxx.database.windows.net', // You can use 'localhost\\instance' to connect to named instance
     database: 'xxxx',
